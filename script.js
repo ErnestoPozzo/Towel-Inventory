@@ -23,20 +23,38 @@ towelCalculator();
 setterButton.addEventListener('click', () => {
     storedSelection = eventSelect.value;
     storedNumber = numberSelect.value;
-    if (storedSelection==="I"){
-        debug.textContent = storedSelection;
-        console.log(`Ingreso: ${storedNumber}`);
-        settingNumber();
-        newCheckIn();
-        towelCalculator();
-    }if(storedSelection==="S"){
-        debug.textContent = storedSelection;
-        console.log(`Salida: ${storedNumber}`);
-        settingNumber();
-        newCheckOut();
-        towelCalculator();
-    }else{
-        debug.textContent = "mierda"
+    settingNumber();
+    switch (storedSelection){
+        case 1:
+            console.log(`Ingreso ${storedSelection}`);
+            console.log(`Cantidad: ${storedNumber}`);
+            break;
+        case 2:
+            console.log(`Salida ${storedSelection}`);
+            console.log(`Cantidad: ${storedNumber}`);
+            break;
+        case 3:
+            console.log(`Ingreso Rosario ${storedSelection}`);
+            console.log(`Cantidad: ${storedNumber}`);
+            break;
+        case 4:
+            console.log(`Salida Rosario ${storedSelection}`);
+            console.log(`Cantidad: ${storedNumber}`);
+            break;
+        case 5:
+            console.log(`Ingreso HTO ${storedSelection}`);
+            console.log(`Cantidad: ${storedNumber}`);
+            break;
+        case 6:
+            console.log(`Salida HTO ${storedSelection}`);
+            console.log(`Cantidad: ${storedNumber}`);
+            break;
+        case 7:
+            console.log(`Permanente ${storedSelection}`);
+            console.log(`Cantidad ${storedNumber}`);
+            break;
+        default:
+            console.log("NOT WORKING");
     }
 })
 function towelCalculator(){
@@ -57,6 +75,7 @@ function newCheckOut(){
 
 }
 function settingNumber(){
+    storedSelection = Math.floor(Number(storedSelection));
     dirtyTowels = Math.floor(Number(dirtyTowels));
     checkInTowels = Math.floor(Number(checkInTowels));
     guestTowels = Math.floor(Number(guestTowels));
