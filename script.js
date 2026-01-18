@@ -9,6 +9,15 @@ const totalDisplay = document.getElementById("total");
 const eventSelect = document.getElementById("event");
 const numberSelect = document.getElementById("inputNumber");
 const setterButton = document.getElementById("setter");
+const operations = {
+    1: { type: "Ingreso", location: "" },
+    2: { type: "Salida", location: "" },
+    3: { type: "Ingreso", location: "Rosario" },
+    4: { type: "Salida", location: "Rosario" },
+    5: { type: "Ingreso", location: "HTO" },
+    6: { type: "Salida", location: "HTO" },
+    7: { type: "Permanente", location: "" }
+};
 storedSelection = "dada";
 storedNumber = 0;
 storageTowels = 114;
@@ -17,46 +26,24 @@ checkInTowels = 0;
 guestTowels = 0;
 htoTowels = 0;
 rsrTowels = 0;
-storageDisplay.textContent = storageTowels;
-
+settingNumber();
 towelCalculator();
 setterButton.addEventListener('click', () => {
     storedSelection = eventSelect.value;
     storedNumber = numberSelect.value;
     settingNumber();
-    switch (storedSelection){
-        case 1:
-            console.log(`Ingreso ${storedSelection}`);
-            console.log(`Cantidad: ${storedNumber}`);
-            break;
-        case 2:
-            console.log(`Salida ${storedSelection}`);
-            console.log(`Cantidad: ${storedNumber}`);
-            break;
-        case 3:
-            console.log(`Ingreso Rosario ${storedSelection}`);
-            console.log(`Cantidad: ${storedNumber}`);
-            break;
-        case 4:
-            console.log(`Salida Rosario ${storedSelection}`);
-            console.log(`Cantidad: ${storedNumber}`);
-            break;
-        case 5:
-            console.log(`Ingreso HTO ${storedSelection}`);
-            console.log(`Cantidad: ${storedNumber}`);
-            break;
-        case 6:
-            console.log(`Salida HTO ${storedSelection}`);
-            console.log(`Cantidad: ${storedNumber}`);
-            break;
-        case 7:
-            console.log(`Permanente ${storedSelection}`);
-            console.log(`Cantidad ${storedNumber}`);
-            break;
-        default:
-            console.log("NOT WORKING");
-    }
+    processOperation(storedSelection,storedNumber);
 })
+function processOperation(selection, number){
+    const operation = operations[selection];
+    if (operation) {
+        const locationText = operation.location ? ` ${operation.location}` : '';
+        console.log(`${operation.type}${locationText}`);
+        console.log(`Cantidad: ${storedNumber}`);
+    } else {
+        console.log("NOT WORKING");
+}
+}
 function towelCalculator(){
     totalTowels = storageTowels+dirtyTowels+checkInTowels+guestTowels+htoTowels+rsrTowels;   
     totalDisplay.textContent = totalTowels;
