@@ -39,7 +39,7 @@ function processOperation(selection, number){
     if (operation) {
         const locationText = operation.location ? ` ${operation.location}` : '';
         console.log(`${operation.type}${locationText}`);
-        console.log(`Cantidad: ${storedNumber}`);
+        console.log(`Cantidad: ${number}`);
     } else {
         console.log("NOT WORKING");
 }
