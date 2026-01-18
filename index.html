@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Toallas</title>
+</head>
+<body>
+    <h1>Toallas</h1>
+    <div id="container_numbers">
+        <div id="storage">0</div>
+        <div id="dirty">0</div>
+        <div id="checkIn">0</div>
+        <div id="guest">0</div>
+        <div id="HTO">0</div>
+        <div id="RSR">0</div>
+        <div id="total">0</div>
+    </div>
+    <div id="container_numberLabels">
+        <label for="storage">Almacen</label>
+        <label for="dirty">Tacho</label>
+        <label for="checkIn">Ingresos</label>
+        <label for="guest">Permanentes</label>
+        <label for="HTO">HTO</label>
+        <label for="RSR">RSR</label>
+        <label for="total">TOTAL</label>
+    </div>
+    <div id="container_input">
+        <label for="event">Elige un evento:</label>
+        <select name="event" id="event">
+            <option value="I">Ingreso</option>
+            <option value="S">Salida</option>
+            <option value="IRSR">Ingreso Rosario</option>
+            <option value="SRSR">Salida Rosario</option>
+            <option value="IHTO">Ingreso HTO</option>
+            <option value="SHTO">Salida HTO</option>
+            <option value="P">Permanente</option>
+        </select>
+        <label for="inputNumber">Introduce numero de toallas</label>
+        <input type="number" id="inputNumber">
+        <button id="setter">Introducir</button>
+    </div>
+    <p id="debug"></p>
+    <script src="script.js"></script>
+</body>
+</html>

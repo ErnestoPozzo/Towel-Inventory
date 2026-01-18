@@ -1,0 +1,10 @@
+#container_numbers{
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
+}
+#container_numberLabels{
+    display: flex;
+    justify-content: center;
+    gap: 7rem;
+}
