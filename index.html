@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <title>Toallas</title>
 </head>
 <body>
@@ -22,17 +25,17 @@
         <div id="total">0</div>
     </div>
     <div id="container_numberLabels">
-        <label for="storage">Almacen</label>
-        <label for="dirty">Tacho</label>
-        <label for="checkIn">Ingresos</label>
-        <label for="guest">Permanentes</label>
-        <label for="HTO">HTO</label>
-        <label for="RSR">RSR</label>
-        <label for="total">TOTAL</label>
+        <div for="storage">Almacen</div>
+        <div for="dirty">Tacho</div>
+        <div for="checkIn">Ingresos</div>
+        <div for="guest">Permanentes</div>
+        <div for="HTO">HTO</div>
+        <div for="RSR">RSR</div>
+        <div for="total">TOTAL</div>
     </div>
     <div id="container_input">
-        <label for="event">Elige un evento:</label>
-        <select name="event" id="event">
+        <label for="event">EVENTO:</label>
+        <select class="js-example-basic-single" style="width: 10%;" id="event">
             <option value="1">Ingreso</option>
             <option value="2">Salida</option>
             <option value="3">Ingreso Rosario</option>
@@ -41,11 +44,68 @@
             <option value="6">Salida HTO</option>
             <option value="7">Permanente</option>
         </select>
-        <label for="inputNumber">Introduce numero de toallas</label>
+        <label for="room">
+            HABITACIÓN
+            <select  class="js-example-basic-single" style="width: 10%" name="room" id="room">
+                <optgroup label="101 hasta 109">
+                    <option value="1">102</option>
+                    <option value="2">103</option>
+                    <option value="3">104</option>
+                    <option value="4">105</option>
+                    <option value="5">106</option>
+                    <option value="6">107</option>
+                    <option value="7">108</option>
+                    <option value="8">109</option>
+                </optgroup>
+                <optgroup label="201 hasta 211">
+                    <option value="9">201</option>
+                    <option value="10">202</option>
+                    <option value="11">203</option>
+                    <option value="12">204</option>
+                    <option value="13">205</option>
+                    <option value="14">206</option>
+                    <option value="15">207</option>
+                    <option value="16">208</option>
+                    <option value="17">209</option>
+                    <option value="18">210</option>
+                    <option value="19">211</option>
+                </optgroup>
+                <optgroup label="301 hasta 312">
+                    <option value="20">301</option>
+                    <option value="21">302</option>
+                    <option value="22">303</option>
+                    <option value="23">304</option>
+                    <option value="24">305</option>
+                    <option value="25">306</option>
+                    <option value="26">307</option>
+                    <option value="27">308</option>
+                    <option value="28">309</option>
+                    <option value="29">310</option>
+                    <option value="30">311</option>
+                    <option value="31">312</option>
+                </optgroup>
+                <optgroup label="401 hasta 412">
+                    <option value="32">401</option>
+                    <option value="33">402</option>
+                    <option value="34">403</option>
+                    <option value="35">404</option>
+                    <option value="36">405</option>
+                    <option value="37">406</option>
+                    <option value="38">407</option>
+                    <option value="39">408</option>
+                    <option value="40">409</option>
+                    <option value="41">410</option>
+                    <option value="42">411</option>
+                    <option value="43">412</option>
+                </optgroup>
+            </select>
+        </label>
+        <label for="inputNumber">NÚMERO</label>
         <input type="number" id="inputNumber">
         <button id="setter">Introducir</button>
     </div>
     <p id="debug"></p>
     <script src="script.js"></script>
+    
 </body>
 </html>

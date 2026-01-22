@@ -6,11 +6,9 @@ const guestTowelsDisplay = document.getElementById("guest");
 const htoTowelsDisplay = document.getElementById("HTO");
 const rsrTowelsDisplay = document.getElementById("RSR");
 const totalTowelsDisplay = document.getElementById("total");
-const eventSelect = document.getElementById("event");
+const eventSelected = document.getElementById("event");
 const numberSelect = document.getElementById("inputNumber");
 const setterButton = document.getElementById("setter");
-storedSelection = 0;
-storedNumber = 0;
 const calculationDisplay = {
     storageTowels: 100,
     dirtyTowels: 0,
@@ -94,7 +92,7 @@ const operations = {
 };
 calculationDisplay.start();
 setterButton.addEventListener('click', () => {
-    storedSelection = eventSelect.value;
+    storedSelection = eventSelected.value;
     storedNumber = numberSelect.value;
     towelDistribution(storedSelection,storedNumber);
 })
@@ -120,5 +118,9 @@ function towelDistribution(valueStoredSelection,valueStoredNumber){
         return;
     }
     processOperation(valueStoredSelection, num);
+    // add rule, number cannot be greater than 113
 }
 
+$(document).ready(function() {
+  $('.js-example-basic-single').select2();
+});
