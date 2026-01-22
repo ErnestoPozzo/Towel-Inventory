@@ -96,17 +96,29 @@ calculationDisplay.start();
 setterButton.addEventListener('click', () => {
     storedSelection = eventSelect.value;
     storedNumber = numberSelect.value;
-    processOperation(storedSelection,storedNumber);
+    towelDistribution(storedSelection,storedNumber);
 })
-function processOperation(valueStoredSelection, valueStoredNumber){
-    const operation = operations[valueStoredSelection];
+function processOperation(selection, num){
+    const operation = operations[selection];
     if (operation) {
         const locationText = operation.location ? `${operation.location}` : '';
         console.log(`${operation.type}${locationText}`);
-        console.log(`Cantidad: ${valueStoredNumber}`);
-        operation.calculation(valueStoredNumber);
+        console.log(`Cantidad: ${num}`);
+        operation.calculation(num);
     } else {
         console.log("NOT WORKING");
+    }
 }
+function towelDistribution(valueStoredSelection,valueStoredNumber){
+    if (typeof valueStoredNumber === 'string' && isNaN(parseFloat(valueStoredNumber))) {
+        alert("Escribe un numero");
+        return;
+    }
+    const num = Number(valueStoredNumber);
+    if (num <= 0) {
+        alert("Escribe un numero mayor a 0")
+        return;
+    }
+    processOperation(valueStoredSelection, num);
 }
 
