@@ -1,3 +1,4 @@
+// Create a log on console storing room value
 const debug = document.getElementById("debug");
 const storageTowelsDisplay = document.getElementById("storage");
 const dirtyTowelsDisplay = document.getElementById("dirty");
