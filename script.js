@@ -118,7 +118,6 @@ function towelDistribution(valueStoredSelection,valueStoredNumber){
         return;
     }
     processOperation(valueStoredSelection, num);
-    // add rule, number cannot be greater than 113
 }
 
 $(document).ready(function() {
