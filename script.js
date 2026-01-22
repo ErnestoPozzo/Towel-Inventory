@@ -119,6 +119,7 @@ function towelDistribution(valueStoredSelection,valueStoredNumber){
         alert("Escribe un numero mayor a 0")
         return;
     }
+    // add a Check, num cannot be bigger than 113, add a val able to modify in the future
     processOperation(valueStoredSelection, num);
 }
 
