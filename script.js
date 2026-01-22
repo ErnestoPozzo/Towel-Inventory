@@ -1,17 +1,17 @@
 const debug = document.getElementById("debug");
-const storageDisplay = document.getElementById("storage");
-const dirtyDisplay = document.getElementById("dirty");
-const checkInDisplay = document.getElementById("checkIn");
-const guestDisplay = document.getElementById("guest");
-const htoDisplay = document.getElementById("HTO");
-const rsrDisplay = document.getElementById("RSR");
-const totalDisplay = document.getElementById("total");
+const storageTowelsDisplay = document.getElementById("storage");
+const dirtyTowelsDisplay = document.getElementById("dirty");
+const checkInTowelsDisplay = document.getElementById("checkIn");
+const guestTowelsDisplay = document.getElementById("guest");
+const htoTowelsDisplay = document.getElementById("HTO");
+const rsrTowelsDisplay = document.getElementById("RSR");
+const totalTowelsDisplay = document.getElementById("total");
 const eventSelect = document.getElementById("event");
 const numberSelect = document.getElementById("inputNumber");
 const setterButton = document.getElementById("setter");
 storedSelection = 0;
 storedNumber = 0;
-const boxes = {
+const calculationDisplay = {
     storageTowels: 100,
     dirtyTowels: 0,
     checkInTowels: 0,
@@ -19,85 +19,92 @@ const boxes = {
     htoTowels: 0,
     rsrTowels: 0,
     total:function(){
-        totalDisplay.textContent = +this.storageTowels + +this.dirtyTowels + +this.checkInTowels + +this.guestTowels + +this.htoTowels + +this.rsrTowels;
+        totalTowelsDisplay.textContent = +this.storageTowels + +this.dirtyTowels + +this.checkInTowels + +this.guestTowels + +this.htoTowels + +this.rsrTowels;
     },
     start:function(){
-        storageDisplay.textContent = this.storageTowels;
-        guestDisplay.textContent = this.checkInTowels+this.guestTowels;
+        storageTowelsDisplay.textContent = this.storageTowels;
+        guestTowelsDisplay.textContent = this.checkInTowels+this.guestTowels;
         this.total();
     },
 };
 const operations = {
     1: { type: "Ingreso", location: "", 
-        calculation:function(number){
-            const salida = +boxes.storageTowels - +number;
-            const entrada = +boxes.checkInTowels + +number;
-            boxes.storageTowels = salida;
-            boxes.checkInTowels = entrada;
-            storageDisplay.textContent = salida;
-            checkInDisplay.textContent = entrada;
-            console.log(`good`);
+        calculation:function(numberUserInput){
+            const salida = +calculationDisplay.storageTowels - +numberUserInput;
+            const entrada = +calculationDisplay.checkInTowels + +numberUserInput;
+            calculationDisplay.storageTowels = salida;
+            calculationDisplay.checkInTowels = entrada;
+            storageTowelsDisplay.textContent = salida;
+            checkInTowelsDisplay.textContent = entrada;
         }},
     2: { type: "Salida", location: "", 
-        calculation:function(number){
-            const salida = +boxes.guestTowels - +number;
-            const entrada = +boxes.dirtyTowels + +number;
-            boxes.guestTowels = salida;
-            boxes.dirtyTowels = entrada;
-            guestDisplay.textContent = salida;
-            dirtyDisplay.textContent = entrada;
+        calculation:function(numberUserInput){
+            const salida = +calculationDisplay.guestTowels - +numberUserInput;
+            const entrada = +calculationDisplay.dirtyTowels + +numberUserInput;
+            calculationDisplay.guestTowels = salida;
+            calculationDisplay.dirtyTowels = entrada;
+            guestTowelsDisplay.textContent = salida;
+            dirtyTowelsDisplay.textContent = entrada;
         }},
     3: { type: "Ingreso", location: "Rosario", 
-        calculation: function(number){
-            const salida = +boxes.rsrTowels - +number;
-            const entrada = +boxes.storageTowels + +number;
-            boxes.rsrTowels = salida;
-            boxes.storageTowels = entrada;
-            rsrDisplay.textContent = salida;
-            storageDisplay.textContent = entrada;
+        calculation: function(numberUserInput){
+            const salida = +calculationDisplay.rsrTowels - +numberUserInput;
+            const entrada = +calculationDisplay.storageTowels + +numberUserInput;
+            calculationDisplay.rsrTowels = salida;
+            calculationDisplay.storageTowels = entrada;
+            rsrTowelsDisplay.textContent = salida;
+            storageTowelsDisplay.textContent = entrada;
         }},
     4: { type: "Salida", location: "Rosario", 
-        calculation: function(number){
-            const salida = +boxes.dirtyTowels - +number;
-            const entrada = +boxes.rsrTowels + +number;
-            boxes.dirtyTowels = salida;
-            boxes.rsrTowels = entrada;
-            dirtyDisplay.textContent = salida;
-            rsrDisplay.textContent = entrada;
+        calculation: function(numberUserInput){
+            const salida = +calculationDisplay.dirtyTowels - +numberUserInput;
+            const entrada = +calculationDisplay.rsrTowels + +numberUserInput;
+            calculationDisplay.dirtyTowels = salida;
+            calculationDisplay.rsrTowels = entrada;
+            dirtyTowelsDisplay.textContent = salida;
+            rsrTowelsDisplay.textContent = entrada;
         }},
     5: { type: "Ingreso", location: "HTO", 
-        calculation:function(number){
-            const salida = +boxes.htoTowels - +number;
-            const entrada = +boxes.storageTowels + +number;
-            boxes.htoTowels = salida;
-            boxes.storageTowels = entrada;
-            htoDisplay.textContent = salida;
-            storageDisplay.textContent = entrada;
+        calculation:function(numberUserInput){
+            const salida = +calculationDisplay.htoTowels - +numberUserInput;
+            const entrada = +calculationDisplay.storageTowels + +numberUserInput;
+            calculationDisplay.htoTowels = salida;
+            calculationDisplay.storageTowels = entrada;
+            htoTowelsDisplay.textContent = salida;
+            storageTowelsDisplay.textContent = entrada;
         }},
     6: { type: "Salida", location: "HTO", 
-        calculation:function(number){
-             const salida = +boxes.dirtyTowels - +number;
-             const entrada = +boxes.htoTowels + +number;
-             boxes.dirtyTowels = salida;
-             boxes.htoTowels = entrada;
-             dirtyDisplay.textContent = salida;
-             htoDisplay.textContent = entrada;
+        calculation:function(numberUserInput){
+             const salida = +calculationDisplay.dirtyTowels - +numberUserInput;
+             const entrada = +calculationDisplay.htoTowels + +numberUserInput;
+             calculationDisplay.dirtyTowels = salida;
+             calculationDisplay.htoTowels = entrada;
+             dirtyTowelsDisplay.textContent = salida;
+             htoTowelsDisplay.textContent = entrada;
         }},
-    7: { type: "Permanente", location: "", calculation:function(number){}}
+    7: { type: "Permanente", location: "", 
+        calculation:function(numberUserInput){
+            const salida = +calculationDisplay.storageTowels - +numberUserInput;
+            const entrada = +calculationDisplay.dirtyTowels + +numberUserInput;
+            calculationDisplay.storageTowels = salida;
+            calculationDisplay.dirtyTowels = entrada;
+            storageTowelsDisplay.textContent = salida;
+            dirtyTowelsDisplay.textContent = entrada;
+        }}
 };
-boxes.start();
+calculationDisplay.start();
 setterButton.addEventListener('click', () => {
     storedSelection = eventSelect.value;
     storedNumber = numberSelect.value;
     processOperation(storedSelection,storedNumber);
 })
-function processOperation(selection, number){
-    const operation = operations[selection];
+function processOperation(valueStoredSelection, valueStoredNumber){
+    const operation = operations[valueStoredSelection];
     if (operation) {
-        const locationText = operation.location ? ` ${operation.location}` : '';
+        const locationText = operation.location ? `${operation.location}` : '';
         console.log(`${operation.type}${locationText}`);
-        console.log(`Cantidad: ${number}`);
-        operation.calculation(number);
+        console.log(`Cantidad: ${valueStoredNumber}`);
+        operation.calculation(valueStoredNumber);
     } else {
         console.log("NOT WORKING");
 }
